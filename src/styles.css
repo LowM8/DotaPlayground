@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+  color: whitesmoke;
+  font-family: "Times New Roman", serif;
+  background: #333333;
+}

@@ -1,0 +1,30 @@
+h1{
+  text-align: center;
+}
+
+.mainContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+}
+
+
+.heroContainer{
+  display: block;
+  padding: 1%;
+}
+
+.heroContainer p {
+  text-align: center;
+}
+
+.heroContainer img{
+  transition: transform 0.5s;
+}
+
+.heroContainer img:hover {
+  transform: scale(120%) rotate(10deg);
+
+}
