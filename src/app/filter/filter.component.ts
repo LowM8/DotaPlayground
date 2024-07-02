@@ -21,9 +21,4 @@ export class FilterComponent {
     }
     this.showTagWindow = true
   }
-
-  showGenre() {
-    this.showTags();
-  }
-
 }

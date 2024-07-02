@@ -1,5 +1,4 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
-import {filter, fromEvent, map, Observable} from "rxjs";
+import {AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-filter-window',
@@ -8,17 +7,18 @@ import {filter, fromEvent, map, Observable} from "rxjs";
   templateUrl: './filter-window.component.html',
   styleUrl: './filter-window.component.css'
 })
-export class FilterWindowComponent implements OnInit {
-
+export class FilterWindowComponent implements AfterViewInit {
   @Output() public showFilter = new EventEmitter<boolean>(true);
+  @ViewChild('tag', {static: true}) public tag!: ElementRef;
 
-  ngOnInit(): void {
-    const tagElement = document.getElementById('tag');
-    const click$: Observable<Event> = fromEvent(document, 'click');
 
-    this.clickSubscription = click$.pipe(
-        map(x => x.target)
-    )
+
+  ngAfterViewInit(): void {
+    document.addEventListener('click', (event) => {
+      if (!this.tag.nativeElement.contains(event.target)) {
+        this.closeComponent()
+      }
+    });
   }
 
   public closeComponent() {

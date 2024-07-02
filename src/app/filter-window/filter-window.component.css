@@ -1,5 +1,52 @@
-div{
-  display: flex;
-  justify-content: center;
-  background: red;
+.blur-background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255 255 255 / 10%);
+  backdrop-filter: blur(5px);
 }
+
+#tag{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  border-radius: 3%;
+  background: #393E46;
+  overflow: scroll;
+}
+
+.buttonOptions{
+  height: 3rem;
+  color: white;
+  background: #393E46;
+  border-style: none;
+  text-decoration: none;
+  text-align: center;
+  transition: transform 2s;
+}
+
+.tag-content-window{
+  display: flex;
+  flex-direction: column;
+  margin: 10%;
+
+}
+
+.buttonOptions:hover{
+  background: #727C8C;
+}
+
+.header-tags{
+  display: flex;
+  justify-content: space-between;
+}
+
+
