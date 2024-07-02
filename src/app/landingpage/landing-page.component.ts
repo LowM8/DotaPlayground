@@ -4,6 +4,7 @@ import {AsyncPipe, NgOptimizedImage, NgStyle} from "@angular/common";
 import {Heroes} from "../../Interfaces/DotaHero";
 import {SearchComponent} from "../search/search.component";
 import {SearchServiceService} from "../Services/search-service.service";
+import {FilterComponent} from "../filter/filter.component";
 
 @Component({
   selector: 'app-landing-page',
@@ -12,7 +13,8 @@ import {SearchServiceService} from "../Services/search-service.service";
     AsyncPipe,
     NgOptimizedImage,
     SearchComponent,
-    NgStyle
+    NgStyle,
+    FilterComponent
   ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'

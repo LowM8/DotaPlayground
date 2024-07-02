@@ -26,5 +26,18 @@ h1{
 
 .heroContainer img:hover {
   transform: scale(120%) rotate(10deg);
-
 }
+
+.borderline-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.borderline{
+  height: 2px;
+  width: 90%;
+  background: whitesmoke;
+}
+
+

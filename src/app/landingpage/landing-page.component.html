@@ -1,8 +1,10 @@
 <h1>Dota 2</h1>
 
 <app-search></app-search>
-
-
+<app-filter></app-filter>
+<div class="borderline-container">
+  <span class="borderline"></span>
+</div>
 <div class="mainContainer">
   @if (heroes$ | async; as heroes) {
     @for (hero of Object.values(heroes); track hero) {

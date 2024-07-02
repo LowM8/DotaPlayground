@@ -1,0 +1,6 @@
+<button (click)="showTags()">
+  Tags
+</button>
+@if (showTagWindow) {
+  <app-filter-window (showFilter)="showTagWindow = $event"></app-filter-window>
+}
