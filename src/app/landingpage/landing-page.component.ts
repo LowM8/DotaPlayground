@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {map, Observable} from "rxjs";
+import {Observable} from "rxjs";
 import {AsyncPipe, NgOptimizedImage, NgStyle} from "@angular/common";
 import {Heroes} from "../../Interfaces/DotaHero";
 import {SearchComponent} from "../search/search.component";
@@ -20,15 +20,17 @@ import {FilterServiceService} from "../Services/filter-service.service";
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })
-export class LandingPageComponent implements OnInit{
+export class LandingPageComponent implements OnInit {
 
-  public heroes$!:Observable<Heroes>
+  public heroes$!: Observable<Heroes>
   public preUrlImg: string = "https://cdn.akamai.steamstatic.com"
-
-
+  public filters$ = this.filter.getFilters()
+  public filters!: string[];
 
   ngOnInit(): void {
-    this.heroes$ = this.searchService.getSearchedHeroes()
+    this.filters$.subscribe(x => {
+      this.heroes$ = this.filter.getFilteredHeroes(x)
+    })
   }
 
   constructor(
@@ -37,8 +39,8 @@ export class LandingPageComponent implements OnInit{
   ) {
   }
 
-  public createImageUrl(url :string):string{
-    return this.preUrlImg+url;
+  public createImageUrl(url: string): string {
+    return this.preUrlImg + url;
   }
 
   protected readonly Object = Object;

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Heroes} from "../../Interfaces/DotaHero";
-import {map, Observable, switchMap} from "rxjs";
+import {map, switchMap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {DotaOfficialApiServiceService} from "./DotaApiServices/dota-official-api-service.service";
 
@@ -28,7 +28,6 @@ export class SearchServiceService {
       })
     )
   }
-
 
   public getSearchedHeroes() {
     return this.activeRoute.queryParams.pipe(
