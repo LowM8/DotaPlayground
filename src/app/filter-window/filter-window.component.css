@@ -1,4 +1,4 @@
-.blur-background{
+.blur-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -9,44 +9,98 @@
   backdrop-filter: blur(5px);
 }
 
-#tag{
+#tag {
   width: 200px;
   height: 200px;
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: 2;
-  transform: translate(-50%, -50%);
-  border: 1px solid black;
+  transform: translate(-50%, -100%);
   border-radius: 3%;
   background: #393E46;
-  overflow: scroll;
+  overflow: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.buttonOptions{
+.buttonOptions {
   height: 3rem;
   color: white;
   background: #393E46;
   border-style: none;
   text-decoration: none;
   text-align: center;
-  transition: transform 2s;
 }
 
-.tag-content-window{
+.closeButton {
+  background: #393E46;
+  border: none;
+  color: whitesmoke;
+  cursor: pointer
+}
+
+.underlineDiv {
+  width: 100%;
+  height: 1px;
+  background: whitesmoke;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.tag-content-window {
   display: flex;
   flex-direction: column;
-  margin: 10%;
+  margin: 5%;
 
 }
 
-.buttonOptions:hover{
-  background: #727C8C;
-}
-
-.header-tags{
+.header-tags {
   display: flex;
   justify-content: space-between;
 }
 
+.filterBox{
+  background: #393E46;
+  border: none;
+  color: whitesmoke;
+  cursor: pointer
+}
 
+.filterContainer{
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+}
+
+
+
+@media (width >= 703px) {
+  #tag {
+    width: 250px;
+    height: 250px;
+  }
+
+  .windows-font-size {
+    font-size: 20px;
+  }
+
+  .buttonOptions {
+    font-size: 16px;
+  }
+}
+
+@media (width >= 978px) {
+  #tag {
+    width: 300px;
+    height: 300px;
+  }
+
+  .windows-font-size {
+    font-size: 24px;
+  }
+
+  .buttonOptions {
+    font-size: 18px;
+  }
+}

@@ -39,4 +39,4 @@ export interface Hero{
 
 }
 
-export type role = string
+export type role = "Carry" | "Escape" | "Nuker" | "Initiator" | "Durable" | "Disabler" | "Support" | "Pusher"

@@ -9,19 +9,31 @@
   width: 80%;
 }
 
-button {
+.button {
   background: #393E46;
+  font-size: 20px;
   color: whitesmoke;
-  width: 10%;
   height: 2rem;
   cursor: pointer;
   text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 1%;
   border-style: none;
-  transition: transform 2s;
+  transition: transform 2s, background 0.3s;
 }
 
-button:hover {
+.button:hover {
   background: #727C8C;
+}
 
+@media (width >= 843px) {
+  .button{
+    font-size: 24px;
+  }
+}
+
+@media (width >= 972px) {
+  .button{
+    font-size: 28px;
+  }
 }

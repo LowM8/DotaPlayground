@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Heroes} from "../../Interfaces/DotaHero";
-import {map, switchMap} from "rxjs";
+import {map, Observable, switchMap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {DotaOfficialApiServiceService} from "./DotaApiServices/dota-official-api-service.service";
 
@@ -29,6 +29,7 @@ export class SearchServiceService {
     )
   }
 
+
   public getSearchedHeroes() {
     return this.activeRoute.queryParams.pipe(
       switchMap(params => {
@@ -43,6 +44,7 @@ export class SearchServiceService {
   public fuzzySearch(pattern: string, str: string): boolean {
     str = str.toLowerCase();
     pattern = pattern.toLowerCase();
+    pattern = pattern.replace(/[^a-z]/g, '');
     pattern = ".*" + pattern.split("").join(".*") + ".*";
     const re = new RegExp(pattern);
     return re.test(str);

@@ -1,10 +1,12 @@
 <div class="div-container">
   <span class="button-layer">
-  <button (click)="showTags()">
+  <button class="button" (click)="showTags()">
     Tags
   </button>
     </span>
 </div>
 @if (showTagWindow) {
-  <app-filter-window (showFilter)="showTagWindow = $event"></app-filter-window>
+  <app-filter-window
+    (showFilter)="showTagWindow = $event">
+  </app-filter-window>
 }
