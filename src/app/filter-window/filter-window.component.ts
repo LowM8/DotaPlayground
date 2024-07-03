@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 import {DotaOfficialApiServiceService} from "../Services/DotaApiServices/dota-official-api-service.service";
 import {AsyncPipe} from "@angular/common";
-import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {FilterServiceService} from "../Services/filter-service.service";
 
@@ -35,8 +34,6 @@ export class FilterWindowComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly dotaAPI: DotaOfficialApiServiceService,
-    private readonly router: Router,
-    private readonly activeRoute: ActivatedRoute,
     private readonly filter: FilterServiceService
   ) {
   }
@@ -58,12 +55,7 @@ export class FilterWindowComponent implements OnInit, OnDestroy {
   }
 
   private setFilter(filter: string[]) {
-    this.router.navigate([], {
-      relativeTo: this.activeRoute,
-      queryParams: filter.length > 0 ? {tags: filter.join(",")} : {tags: null},
-      queryParamsHandling: 'merge',
-      preserveFragment: true,
-    })
+    this.filter.setFilter(filter);
   }
 
   activateTag(tag: string) {

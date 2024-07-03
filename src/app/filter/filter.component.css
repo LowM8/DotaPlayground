@@ -5,8 +5,10 @@
 }
 
 .button-layer{
+  display: flex;
   margin-top: 1rem;
   width: 80%;
+  gap: 1rem;
 }
 
 .button {
@@ -22,6 +24,33 @@
   transition: transform 2s, background 0.3s;
 }
 
+.active-filter-container{
+  display: flex;
+}
+
+.active-filter-button{
+  background: #333333;
+  color: whitesmoke;
+  border-style: none;
+}
+
+.active-filter-container span{
+  display: flex;
+  background: #393E46;
+  align-items: center;
+}
+.active-filter-container span button{
+  background: #393E46;
+  cursor: pointer;
+}
+
+.filterBox{
+  background: #333333;
+  color: red;
+  border: none;
+  cursor: pointer
+}
+
 .button:hover {
   background: #727C8C;
 }
@@ -30,10 +59,16 @@
   .button{
     font-size: 24px;
   }
+  .responsiveSize{
+    font-size: 22px;
+  }
 }
 
 @media (width >= 972px) {
   .button{
     font-size: 28px;
+  }
+  .responsiveSize{
+    font-size: 18px;
   }
 }

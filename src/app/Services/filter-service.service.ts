@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {map, Observable} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Heroes} from "../../Interfaces/DotaHero";
 import {SearchServiceService} from "./search-service.service";
 
@@ -11,7 +11,8 @@ export class FilterServiceService {
 
   constructor(
     private readonly activeRoute: ActivatedRoute,
-    private readonly search: SearchServiceService
+    private readonly search: SearchServiceService,
+    private readonly router: Router
   ) {
   }
 
@@ -24,6 +25,15 @@ export class FilterServiceService {
         return []
       })
     )
+  }
+
+  public setFilter(filter: string[]) {
+    this.router.navigate([], {
+      relativeTo: this.activeRoute,
+      queryParams: filter.length > 0 ? {tags: filter.join(",")} : {tags: null},
+      queryParamsHandling: 'merge',
+      preserveFragment: true,
+    })
   }
 
   public getFilteredHeroes(values: string[]) {

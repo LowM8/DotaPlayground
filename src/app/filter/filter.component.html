@@ -1,8 +1,16 @@
 <div class="div-container">
   <span class="button-layer">
-  <button class="button" (click)="showTags()">
-    Tags
+  <button class="material-symbols-outlined button" (click)="showTags()">
+    filter_alt
   </button>
+    @for (tag of activatedFilter; track tag) {
+      <div class="active-filter-container">
+        <span>
+      <button (click)="removeFilter(tag)" class="material-symbols-outlined filterBox">close</button>
+      <button class="active-filter-button responsiveSize">{{ tag }}</button>
+          </span>
+        </div>
+    }
     </span>
 </div>
 @if (showTagWindow) {

@@ -1,7 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FilterWindowComponent} from "../filter-window/filter-window.component";
-import {ActivatedRoute, Router} from "@angular/router";
-import {relative} from "@angular/compiler-cli";
+import {FilterServiceService} from "../Services/filter-service.service";
 
 @Component({
   selector: 'app-filter',
@@ -12,10 +11,31 @@ import {relative} from "@angular/compiler-cli";
   ],
   styleUrls: ['./filter.component.css']
 })
-export class FilterComponent {
+export class FilterComponent implements OnInit {
 
   public showTagWindow: boolean = false;
+  public activatedFilter: string[] = [];
 
+  constructor(
+    private readonly filter: FilterServiceService
+  ) {
+  }
+
+  ngOnInit(): void {
+    this.filter.getFilters().subscribe(filters => {
+      this.activatedFilter = filters
+    })
+  }
+
+  protected removeFilter(tag: string) {
+    let newFilter: string[] = []
+    this.activatedFilter.filter(filters => {
+      if (filters !== tag) {
+        newFilter.push(filters)
+      }
+    })
+    this.filter.setFilter(newFilter)
+  }
 
   public showTags(): void {
     if (this.showTagWindow) {
@@ -24,4 +44,5 @@ export class FilterComponent {
     }
     this.showTagWindow = true
   }
+
 }
