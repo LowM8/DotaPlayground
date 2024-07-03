@@ -7,7 +7,7 @@
       <div class="active-filter-container">
         <span>
       <button (click)="removeFilter(tag)" class="material-symbols-outlined filterBox">close</button>
-      <button class="active-filter-button responsiveSize">{{ tag }}</button>
+      <button (click)="removeFilter(tag)" class="active-filter-button responsiveSize">{{ tag }}</button>
           </span>
         </div>
     }
