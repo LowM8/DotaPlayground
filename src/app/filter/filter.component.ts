@@ -27,6 +27,10 @@ export class FilterComponent implements OnInit {
     })
   }
 
+  protected removeFilterAll(){
+    this.filter.setFilter([])
+  }
+
   protected removeFilter(tag: string) {
     let newFilter: string[] = []
     this.activatedFilter.filter(filters => {
