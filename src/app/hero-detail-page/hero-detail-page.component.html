@@ -1,0 +1,5 @@
+@if (hero$ !== void | async){
+  @for (hero of hero$; track hero){
+    <p>{{hero.name}}</p>
+  }
+}
