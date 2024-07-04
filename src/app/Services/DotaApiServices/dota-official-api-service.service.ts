@@ -21,14 +21,16 @@ export class DotaOfficialApiServiceService {
     return ["Carry", "Escape", "Nuker", "Initiator", "Durable", "Disabler", "Support", "Pusher"]
   }
 
-  public getHeroById(id : string): Observable<Hero> | Observable<void> {
+  public getHeroById(id : string) {
     return this.heroesCall().pipe(
       map(heroes => {
-        Object.entries(heroes).forEach(([key, hero]) => {
-          if (hero.id === parseInt(id)) {
+        Object.values(heroes).forEach(hero => {
+          if (hero.id === parseInt(id)){
             return hero
           }
-          return
+          return (): Hero => {
+
+          }
         })
       })
     )

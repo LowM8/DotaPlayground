@@ -10,6 +10,6 @@ export const routes: Routes = [
   },
   {
     path: "hero/:heroId",
-    component: HeroDetailPageComponent
+    component: HeroDetailPageComponent,
   }
 ];
