@@ -6,6 +6,7 @@ import {SearchComponent} from "../search/search.component";
 import {SearchServiceService} from "../Services/search-service.service";
 import {FilterComponent} from "../filter/filter.component";
 import {FilterServiceService} from "../Services/filter-service.service";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-landing-page',
@@ -15,7 +16,8 @@ import {FilterServiceService} from "../Services/filter-service.service";
     NgOptimizedImage,
     SearchComponent,
     NgStyle,
-    FilterComponent
+    FilterComponent,
+    RouterLink
   ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'

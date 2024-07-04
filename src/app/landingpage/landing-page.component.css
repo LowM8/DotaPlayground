@@ -2,6 +2,11 @@ h1{
   text-align: center;
 }
 
+a{
+  text-decoration: none;
+  color: whitesmoke;
+}
+
 .mainContainer{
   display: flex;
   flex-wrap: wrap;

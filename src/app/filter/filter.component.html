@@ -1,10 +1,10 @@
 <div class="div-container">
   <span class="button-layer">
-  <button class="material-symbols-outlined button" (click)="showTags()">
+  <button class="material-symbols-outlined button scrollItems" (click)="showTags()">
     filter_alt
   </button>
     @for (tag of activatedFilter; track tag) {
-      <div class="active-filter-container">
+      <div class="active-filter-container scrollItems">
         <span>
       <button (click)="removeFilter(tag)" class="material-symbols-outlined filterBox">close</button>
       <button (click)="removeFilter(tag)" class="active-filter-button responsiveSize">{{ tag }}</button>
