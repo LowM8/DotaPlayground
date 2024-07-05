@@ -1,0 +1,6 @@
+@if (hero$ | async; as hero){
+  <p>{{hero.name}}</p>
+} @else {
+  <app-error-page></app-error-page>
+}
+

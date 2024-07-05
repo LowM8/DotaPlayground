@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FilterWindowComponent} from "../filter-window/filter-window.component";
-import {FilterServiceService} from "../Services/filter-service.service";
+import {FilterServiceService} from "../../Services/filter-service.service";
 
 @Component({
   selector: 'app-filter',

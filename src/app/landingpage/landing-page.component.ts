@@ -3,9 +3,9 @@ import {Observable} from "rxjs";
 import {AsyncPipe, NgOptimizedImage, NgStyle} from "@angular/common";
 import {Heroes} from "../../Interfaces/DotaHero";
 import {SearchComponent} from "../search/search.component";
-import {SearchServiceService} from "../Services/search-service.service";
+import {SearchServiceService} from "../../Services/search-service.service";
 import {FilterComponent} from "../filter/filter.component";
-import {FilterServiceService} from "../Services/filter-service.service";
+import {FilterServiceService} from "../../Services/filter-service.service";
 import {RouterLink} from "@angular/router";
 
 @Component({

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Hero, Heroes} from "../../../Interfaces/DotaHero";
+import {Hero, Heroes} from "../../Interfaces/DotaHero";
 import {map, Observable, of} from "rxjs";
 
 @Injectable({
@@ -14,7 +14,7 @@ export class DotaOfficialApiServiceService {
   }
 
   public heroesCall() {
-    return this.http.get<Heroes>('https://api.opendota.com/api/constants/heroes')
+    return this.http.get<Heroes>('assets/heroes.json');
   }
 
   public getAllRoles(): string[] {

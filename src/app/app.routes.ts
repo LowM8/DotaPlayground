@@ -14,5 +14,6 @@ export const routes: Routes = [
     resolve: {
       hero: HeroResolver
     }
-  }
+  },
+  { path: '**', redirectTo: '/' }
 ];

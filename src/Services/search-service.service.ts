@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Heroes} from "../../Interfaces/DotaHero";
+import {Heroes} from "../Interfaces/DotaHero";
 import {map, switchMap} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {DotaOfficialApiServiceService} from "./DotaApiServices/dota-official-api-service.service";

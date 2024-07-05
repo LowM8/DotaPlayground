@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {map, Observable} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Hero, Heroes} from "../../Interfaces/DotaHero";
+import {Hero, Heroes} from "../Interfaces/DotaHero";
 import {SearchServiceService} from "./search-service.service";
 
 @Injectable({

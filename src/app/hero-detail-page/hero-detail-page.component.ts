@@ -1,36 +1,32 @@
-import {Component, input, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
+import {Component, OnInit} from '@angular/core';
 import {Hero} from "../../Interfaces/DotaHero";
-import {FilterServiceService} from "../Services/filter-service.service";
-import {DotaOfficialApiServiceService} from "../Services/DotaApiServices/dota-official-api-service.service";
-import {AsyncPipe} from "@angular/common";
-import {toObservable} from "@angular/core/rxjs-interop";
-import {ifStmt} from "@angular/compiler";
+import {AsyncPipe, NgIf} from "@angular/common";
+import {ActivatedRoute} from "@angular/router";
+import {map, Observable} from "rxjs";
+import {ErrorPageComponent} from "../error-page/error-page.component";
 
 @Component({
   selector: 'app-hero-detail-page',
   standalone: true,
   imports: [
-    AsyncPipe
+    AsyncPipe,
+    NgIf,
+    ErrorPageComponent
   ],
   templateUrl: './hero-detail-page.component.html',
   styleUrl: './hero-detail-page.component.css'
 })
 export class HeroDetailPageComponent implements OnInit {
-  public heroId = input.required<string>();
-  public heroId$: Observable<string> = toObservable(this.heroId)
-  public hero$!: Observable<Hero> | Observable<void>;
+  public hero$: Observable<Hero | null> | undefined;
 
   constructor(
-    private readonly dotaApiService: DotaOfficialApiServiceService
+    private route: ActivatedRoute
   ) {
   }
-
   ngOnInit(): void {
-    this.heroId$.subscribe(x => {
-      this.hero$ = this.dotaApiService.getHeroById(x)
-    })
+    this.hero$ = this.route.data.pipe(
+      map(data => data['hero'])
+    );
   }
-
 
 }

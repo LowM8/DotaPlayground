@@ -8,10 +8,10 @@ import {
   ViewChild,
   WritableSignal
 } from '@angular/core';
-import {DotaOfficialApiServiceService} from "../Services/DotaApiServices/dota-official-api-service.service";
+import {DotaOfficialApiServiceService} from "../../Services/DotaApiServices/dota-official-api-service.service";
 import {AsyncPipe} from "@angular/common";
 import {Subscription} from "rxjs";
-import {FilterServiceService} from "../Services/filter-service.service";
+import {FilterServiceService} from "../../Services/filter-service.service";
 
 @Component({
   selector: 'app-filter-window',
