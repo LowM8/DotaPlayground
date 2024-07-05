@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Hero, Heroes, role} from "../../../Interfaces/DotaHero";
-import {map, Observable} from "rxjs";
+import {Hero, Heroes} from "../../../Interfaces/DotaHero";
+import {map, Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -21,17 +21,20 @@ export class DotaOfficialApiServiceService {
     return ["Carry", "Escape", "Nuker", "Initiator", "Durable", "Disabler", "Support", "Pusher"]
   }
 
-  public getHeroById(id : string) {
+  public getHeroById(id: string|null): Observable<Hero | null> {
+    if (!id){
+      return of(null)
+    }
+
+    const heroId = parseInt(id, 10);
+    if (isNaN(heroId)) {
+      return of(null);
+    }
+
     return this.heroesCall().pipe(
       map(heroes => {
-        Object.values(heroes).forEach(hero => {
-          if (hero.id === parseInt(id)){
-            return hero
-          }
-          return (): Hero => {
-
-          }
-        })
+        const heroFound = Object.values(heroes).find(hero => hero.id === heroId)
+        return heroFound || null
       })
     )
   }
