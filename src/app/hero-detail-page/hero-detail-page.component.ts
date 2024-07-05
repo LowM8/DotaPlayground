@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Hero} from "../../Interfaces/DotaHero";
 import {AsyncPipe, NgIf} from "@angular/common";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {map, Observable} from "rxjs";
 import {ErrorPageComponent} from "../error-page/error-page.component";
 
@@ -11,7 +11,8 @@ import {ErrorPageComponent} from "../error-page/error-page.component";
   imports: [
     AsyncPipe,
     NgIf,
-    ErrorPageComponent
+    ErrorPageComponent,
+    RouterLink
   ],
   templateUrl: './hero-detail-page.component.html',
   styleUrl: './hero-detail-page.component.css'

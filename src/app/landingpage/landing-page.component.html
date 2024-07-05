@@ -10,8 +10,10 @@
   @if (heroes$ | async; as heroes) {
     @for (hero of Object.values(heroes); track hero.id) {
       <div class="heroContainer">
+        <a [routerLink]="['/hero', hero.id]">
         <p>{{ hero.localized_name }}</p>
         <img style="width: 256px; height: 144px" src="{{createImageUrl(hero.img)}}" alt="heroImg">
+        </a>
       </div>
     }
   }
