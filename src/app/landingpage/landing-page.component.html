@@ -12,7 +12,7 @@
       <div class="heroContainer">
         <a [routerLink]="['/hero', hero.id]">
         <p>{{ hero.localized_name }}</p>
-        <img style="width: 256px; height: 144px" src="{{createImageUrl(hero.img)}}" alt="heroImg">
+        <img style="width: 256px; height: 144px" src="{{this.apiService.createImageUrl(hero.img)}}" alt="heroImg">
         </a>
       </div>
     }

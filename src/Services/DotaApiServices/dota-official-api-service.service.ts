@@ -8,6 +8,7 @@ import {map, Observable, of} from "rxjs";
 })
 export class DotaOfficialApiServiceService {
 
+  private preUrlImg: string = "https://cdn.akamai.steamstatic.com"
   constructor(
     private http: HttpClient
   ) {
@@ -37,5 +38,9 @@ export class DotaOfficialApiServiceService {
         return heroFound || null
       })
     )
+  }
+
+  public createImageUrl(url: string): string {
+    return this.preUrlImg + url;
   }
 }

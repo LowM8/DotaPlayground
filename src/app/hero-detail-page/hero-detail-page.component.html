@@ -1,8 +1,26 @@
 <a routerLink="/">
   <h1>Dota 2</h1>
 </a>
-@if (hero$ | async; as hero){
-  <p>{{hero.name}}</p>
+@if (hero$ | async; as hero) {
+  <div class="hero-layer">
+    <div class="attribute">
+      <div class="fullImg">
+        <img style="width: 256px; height: 144px" src="{{this.apiService.createImageUrl(hero.img)}}" alt="heroImg">
+        <span>{{ hero.base_health }}</span>
+        <span>{{ hero.base_mana }}</span>
+      </div>
+      <img src="{{this.strengthImg}}">
+      <p>{{ hero.localized_name }}</p>
+    </div>
+    <div class="tags">
+      <p>Tags</p>
+    </div>
+    <div class="values">
+      <p>Values</p>
+    </div>
+  </div>
+
+
 } @else {
   <app-error-page></app-error-page>
 }

@@ -1,0 +1,40 @@
+$imgWidth: 256px;
+
+a {
+  text-decoration: none;
+
+  h1 {
+    color: whitesmoke;
+    text-align: center;
+  }
+}
+
+.hero-layer {
+  display: flex;
+  background: black;
+  color: whitesmoke;
+  justify-content: space-between;
+}
+
+.attribute {
+  span:first-of-type {
+    width: $imgWidth;
+    background-color: green;
+    text-align: center;
+  }
+
+  span:last-of-type {
+    width: $imgWidth;
+    background-color: blue;
+    text-align: center;
+  }
+}
+
+.fullImg{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+
+

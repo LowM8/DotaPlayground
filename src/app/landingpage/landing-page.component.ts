@@ -3,10 +3,10 @@ import {Observable} from "rxjs";
 import {AsyncPipe, NgOptimizedImage, NgStyle} from "@angular/common";
 import {Heroes} from "../../Interfaces/DotaHero";
 import {SearchComponent} from "../search/search.component";
-import {SearchServiceService} from "../../Services/search-service.service";
 import {FilterComponent} from "../filter/filter.component";
 import {FilterServiceService} from "../../Services/filter-service.service";
 import {RouterLink} from "@angular/router";
+import {DotaOfficialApiServiceService} from "../../Services/DotaApiServices/dota-official-api-service.service";
 
 @Component({
   selector: 'app-landing-page',
@@ -25,9 +25,7 @@ import {RouterLink} from "@angular/router";
 export class LandingPageComponent implements OnInit {
 
   public heroes$!: Observable<Heroes>
-  public preUrlImg: string = "https://cdn.akamai.steamstatic.com"
   public filters$ = this.filter.getFilters()
-  public filters!: string[];
 
   ngOnInit(): void {
     this.filters$.subscribe(x => {
@@ -36,13 +34,9 @@ export class LandingPageComponent implements OnInit {
   }
 
   constructor(
-    private readonly searchService: SearchServiceService,
+    protected readonly apiService: DotaOfficialApiServiceService,
     private readonly filter: FilterServiceService
   ) {
-  }
-
-  public createImageUrl(url: string): string {
-    return this.preUrlImg + url;
   }
 
   protected readonly Object = Object;
